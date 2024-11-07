@@ -1,5 +1,6 @@
+// ------------------------Recursion + Memoization (Top down)------------------
 // T.c = O(n2) and S.c = O(n2)  with  Recursion + Memoization (Top down)
-package LC_DP;
+//package LC_DP;
 import java.util.*;
 public class longest_incresing_subsequence {
    // step 1111
@@ -39,12 +40,41 @@ public class longest_incresing_subsequence {
       }
       // step 30.6 -----> max((30.4) or(30.2.1))
       return Math.max(skip, take);
-  }
-   
-   public static void main (String[] a){
+  } 
+ /*  public static void main (String[] a){
       longest_incresing_subsequence obj = new longest_incresing_subsequence();
       int []nums = {0,1,0,6,7,13,2,3};
       System.out.println(obj.LIS(nums));
       //obj.LSS(nums);
    }
+   */
+}
+
+
+// --------------------------- Bottom UP technike------------------------------
+// T.c = O(n2) and S.c = O(n)
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        // step 1
+        int []bottom_up = new int[nums.length];     //S.c = O(n)
+        // step 2
+        Arrays.fill(bottom_up,1);
+        // step 3
+        int max_length_lis = 1;
+        // srep 4
+        for(int i =0 ;i<nums.length;i++){       //T.c = O(n*n)
+            // step 4.0
+            for(int j = 0 ; j<i;j++){
+                // step 4.0.1 -- > check condition then below block are run
+                if(nums[j] < nums[i]){
+                    // step 4.0.1.1  --> 1 = max(1[4],1[4.0])
+                    bottom_up[i] = Math.max(bottom_up[i],bottom_up[j]+1);
+                    //  step 4.0.1.2  --> 3 = max(3,1[4])
+                    max_length_lis = Math.max(max_length_lis,bottom_up[i]);
+                }
+            }
+        }
+        // final step are execute step 5 --> return(step 3)
+        return max_length_lis;
+    }
 }
