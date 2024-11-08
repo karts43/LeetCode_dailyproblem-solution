@@ -37,3 +37,33 @@ class Solution {
       return Math.max(skip, take);
   }
 }
+
+
+
+// ---------------------  bottom_up---------------------------------------
+class Solution {
+    public int findLongestChain(int[][] nums) {
+         Arrays.sort(nums,(a,b)-> a[1]-b[1]);
+        // step 1
+        int []bottom_up = new int[nums.length];     //S.c = O(n)
+        // step 2
+        Arrays.fill(bottom_up,1);
+        // step 3
+        int max_length_lis = 1;
+        // srep 4
+        for(int i =0 ;i<nums.length;i++){       //T.c = O(n*n)
+            // step 4.0
+            for(int j = 0 ; j<i;j++){
+                // step 4.0.1 -- > check condition then below block are run
+                if(nums[j][1] < nums[i][0]){
+                    // step 4.0.1.1  --> 1 = max(1[4],1[4.0])
+                    bottom_up[i] = Math.max(bottom_up[i],bottom_up[j]+1);
+                    //  step 4.0.1.2  --> 3 = max(3,1[4])
+                    max_length_lis = Math.max(max_length_lis,bottom_up[i]);
+                }
+            }
+        }
+        // final step are execute step 5 --> return(step 3)
+        return max_length_lis;
+    }
+}
