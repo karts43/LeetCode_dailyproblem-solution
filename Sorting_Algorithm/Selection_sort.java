@@ -1,4 +1,4 @@
-/* 
+
 //*************************** Java ********************
 //  t.c = O(n2)  and  s.c = O(1)
 import java.util.*;
@@ -25,7 +25,7 @@ int n = nums.length;
          nums[i] = nums[min];
          nums[min] = temp;
    }
-   // // step 1005.2: finaly return integer array ehich are sorted manner / ascending order
+   // step 1005.2: finaly return integer array ehich are sorted manner / ascending order
    return nums;
 }
 public static void main(String[] args){
@@ -47,8 +47,8 @@ public static void main(String[] args){
    System.out.println(Arrays.toString(selection(nums)));
 }
 }
-*/
-/*
+
+
 //************************** Python ********************
 def selec(nums):
    sizee = len(nums)
@@ -70,4 +70,3 @@ for i in range(sizeofarray):
 
 print(selec(nums))
 
-*/
