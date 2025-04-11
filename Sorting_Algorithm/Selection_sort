@@ -1,3 +1,5 @@
+/* 
+//*************************** Java ********************
 //  t.c = O(n2)  and  s.c = O(1)
 import java.util.*;
 class Selection_sort{
@@ -45,3 +47,27 @@ public static void main(String[] args){
    System.out.println(Arrays.toString(selection(nums)));
 }
 }
+*/
+/*
+//************************** Python ********************
+def selec(nums):
+   sizee = len(nums)
+   for i in range(sizee-1):
+      minimun_num = i
+      for j in range(i,sizee):
+         if nums[j] < nums[minimun_num]:
+            minimun_num = j
+      
+      temp = nums[i]
+      nums[i] = nums[minimun_num]
+      nums[minimun_num] = temp
+   return nums
+
+sizeofarray = int(input())
+nums = []
+for i in range(sizeofarray):
+   nums.append(int(input()))
+
+print(selec(nums))
+
+*/
